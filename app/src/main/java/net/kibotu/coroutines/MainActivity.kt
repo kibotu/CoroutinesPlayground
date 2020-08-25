@@ -54,8 +54,6 @@ class MainActivity : AppCompatActivity() {
             titleView.isInvisible = true
             titleView.text = "Hi everyone!"
 
-            titleView.requestLayout()
-
             // Wait for the next layout pass to know
             // the height of the view
             titleView.awaitNextLayout()
