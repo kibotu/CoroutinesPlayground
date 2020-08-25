@@ -1,7 +1,6 @@
 package net.kibotu.coroutines.internal
 
 import android.graphics.drawable.Drawable
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -41,11 +40,6 @@ class PhotoPresenter : Presenter<String>() {
 
         progressBar.show()
 
-        setOnClickListener {
-            viewHolder
-                .itemView
-                .context
-                .showGallery(item.model.toUri())
-        }
+        setOnClickListener { item.onItemClickListener?.invoke(item.model, viewHolder.itemView, position) }
     }
 }
